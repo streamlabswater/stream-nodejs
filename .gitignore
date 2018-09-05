@@ -1,0 +1,16 @@
+_site
+.sass-cache
+.jekyll-metadata
+.env*
+.idea
+.DS_Store
+*.log
+node_modules
+dist
+coverage
+.vscode
+*.zip
+*.tgz
+vendor
+Gemfile.lock
+*.lock
