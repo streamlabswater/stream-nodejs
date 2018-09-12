@@ -1,0 +1,12 @@
+{
+  "name": "@stream/streamlabs",
+  "version": "0.0.1",
+  "description": "Streamlabs Customer API Wrapper",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "standard"
+  },
+  "author": "",
+  "license": "UNLICENSED"
+}
