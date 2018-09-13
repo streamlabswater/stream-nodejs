@@ -1,54 +1,41 @@
+'use strict'
+
 const express = require('express')
 const router = express.Router()
-const qs = require('querystring')
-const { domain: tokenHost, clientId, secretKey, callbackUrl } = require('../config')
+const api = require('../api')
 
-const credentials = {
-  client: {
-    id: clientId,
-    secret: secretKey
-  },
-  auth: {
-    tokenHost,
-    tokenPath: 'oauth2/token',
-    authorizePath: 'login'
-  }
-}
-
-const oauth = require('simple-oauth2').create(credentials)
-
-const authorizationUri = oauth.authorizationCode.authorizeURL({
-  redirect_uri: callbackUrl
+router.get('/', api({ resource: '/hello/world' }), (req, res, next) => {
+  const { payload } = res
+  return res.render('hello', {
+    title: 'hello',
+    payload
+  })
 })
 
-router.get('/', function (req, res, next) {
-  console.log('ACCESS SESSION', req.session.idToken)
-  res.render('locations', { title: 'Majo Moto Locations' })
+router.get('/:collection', api(), (req, res, next) => {
+  const { payload } = res
+  const collection = req.params.collection
+  const identifier = `${collection.slice(0, -1)}Id`
+
+  return res.render('collection', {
+    title: collection,
+    collection,
+    identifier,
+    payload
+  })
 })
 
-router.get('/connect', function (req, res, next) {
-  res.redirect(qs.unescape(authorizationUri))
-})
+router.get('/:collection/:itemId', api(), (req, res, next) => {
+  const { payload } = res
+  const collection = req.params.collection
+  const identifier = `${collection.slice(0, -1)}Id`
 
-router.get('/auth', async (req, res) => {
-  const { code } = req.query
-  const tokenConfig = {
-    code,
-    redirect_uri: callbackUrl
-  }
-
-  try {
-    const result = await oauth.authorizationCode.getToken(tokenConfig)
-    const accessToken = oauth.accessToken.create(result)
-    req.session.idToken = accessToken.token
-    req.session.save()
-    res.redirect('/streamlabs')
-
-    // return res.status(200).json(accessToken)
-  } catch (error) {
-    console.error('Access Token Error', error.message)
-    return res.status(500).json({ message: 'Authentication failed' })
-  }
+  return res.render('item', {
+    title: `${collection}/${req.params.itemId}`,
+    collection,
+    identifier,
+    payload
+  })
 })
 
 module.exports = router

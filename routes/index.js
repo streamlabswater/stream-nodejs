@@ -1,8 +1,39 @@
 const express = require('express')
 const router = express.Router()
+const qs = require('querystring')
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Majo Moto' })
+const { client, auth, api: { redirectUrl } } = require('../config')
+const oauth = require('simple-oauth2').create({ client, auth })
+
+const authorizationUri = oauth.authorizationCode.authorizeURL({
+  redirect_uri: redirectUrl
 })
+
+router.get('/', function (req, res, next) {
+  res.render('home', { title: 'Majo Moto' })
+})
+
+router.get('/connect', function (req, res, next) {
+  res.redirect(qs.unescape(authorizationUri))
+})
+
+router.get('/auth', async (req, res) => {
+  const { code } = req.query
+  const tokenConfig = {
+    code,
+    redirect_uri: redirectUrl
+  }
+
+  try {
+    const result = await oauth.authorizationCode.getToken(tokenConfig)
+    const accessToken = oauth.accessToken.create(result)
+    req.session.oauth = accessToken.token
+    req.session.save()
+    res.redirect('/streamlabs')
+  } catch (error) {
+    console.error('Access Token Error', error.message)
+    return res.status(500).json({ message: 'Authentication failed' })
+  }
+})
+
 module.exports = router

@@ -1,0 +1,9 @@
+{% layout 'layout' %}
+<section>
+  <ul >
+    {% for greeting in payload %}
+      <li>{{greeting}}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% include 'response' %}

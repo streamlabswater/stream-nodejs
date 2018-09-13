@@ -1,0 +1,12 @@
+{% layout 'layout' %}
+  <section>
+    <ul>
+      {% for item in payload[collection] %}
+        <li>
+          <a href="/streamlabs/{{collection}}/{{item[identifier]}}">
+            /{{collection}}/{{ item[identifier] }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% include 'response' %}
