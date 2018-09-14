@@ -1,12 +1,19 @@
 {% layout 'layout' %}
+{% block rel %}
+  <h1>collection: {{collection}}</h1>
   <section>
+    <h2>items</h2>
     <ul>
-      {% for item in payload[collection] %}
+      {% for item in api.response.body[collection] %}
         <li>
           <a href="/streamlabs/{{collection}}/{{item[identifier]}}">
-            /{{collection}}/{{ item[identifier] }}</a>
+            {{ item[identifier] }}</a>
         </li>
       {% endfor %}
     </ul>
   </section>
-{% include 'response' %}
+{% endblock %}
+
+{% block pen %}
+{% include 'resource' %}
+{% endblock %}

@@ -1,0 +1,16 @@
+<div id='actions'>
+  {% assign body = api.response.body %}
+  <form method="POST">
+    <fieldset>
+    <legend>Update <em>home / away</em> status</legend>
+    <label>
+      <input type="radio" id="home" name="homeAway" value='home' {% if body.homeAway == 'home' %} checked {% endif %}/> Home
+    </label>
+    <label>
+    <input type="radio" id="away" name="homeAway" value='away' {% if body.homeAway == 'away' %} checked {% endif %} /> Away
+  </label>
+  </fieldset>
+
+    <button type="submit">update</button>
+  </form>
+</div>

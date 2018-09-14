@@ -1,2 +1,8 @@
 {% layout 'layout' %}
-{% include 'response' %}
+{% block rel %}
+  <h1>item: {{item}}</h1>
+  {% include 'actions' %}
+{% endblock %}
+{% block pen %}
+  {% include 'resource' %}
+{% endblock %}

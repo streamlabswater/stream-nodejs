@@ -1,23 +1,36 @@
 body {
   padding: 1em;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  max-width: 960px;
-  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  /* font-size: 0.9em; */
+  margin: 0;
+  padding: 0;
+  color: #555;
+}
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+  /* margin: 0;
+  padding: 0; */
 }
 
 a {
   color: #00B7FF;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  text-decoration: underline dotted;
 }
 
 button,
 .btn {
   display: inline-block;
-  font-size: 1.5em;
-  background: #00B7FF;
+  /* font-size: 1.5em; */
+  background: #00aeff;
   color: #fff;
-  font-weight: 700;
+  /* font-weight: 700; */
   border: 1px solid transparent;
-  border-radius: 30px;
+  /* border-radius: 30px; */
   min-width: 4em;
   padding: 1rem 2rem;
   margin: 1em;
@@ -30,7 +43,7 @@ button,
 button:hover,
 button:active {
   background: #fff;
-  color: #00B7FF;
+  color: #00aeff;
 
 }
 
@@ -38,10 +51,89 @@ button:focus{
   outline:0;
 }
 
-
-.punctuation:last-child {
-    padding-left:1em;
+nav {
+  background: #00aeff;
+  color: #fff;
+  padding: 1em;
 }
+
+nav a {
+  color: #fff;
+  opacity: 0.9;
+  display: inline-block;
+}
+
+nav a:hover,
+nav a:active {
+  opacity: 1;
+}
+
+main {
+  background: #f4f8f9;
+}
+
+aside ul li {
+  list-style: none;
+}
+
+aside ul li:before {
+  content: "\2014\a0"
+}
+
+aside, main {
+  max-width: 50vw;
+  padding: 1em;
+  min-height: 100vh;
+}
+
+section h2 {
+  font-weight: 300;
+}
+
+table {
+  margin: 1em 0 2em;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 1em;
+  border: 1px solid #efefef;
+  width: auto;
+}
+
+td:first-child {
+  max-width: 120px;
+}
+fieldset {
+  border: 1px solid #efefef;
+}
+
+label {
+  display: block;
+  padding: 1em;
+}
+
+pre h3 {
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+
+
+
+.punctuation:first-child {
+    margin-left:-3.5em;
+}
+/* .punctuation:last-child {
+    padding-left:2em;
+} */
 /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
@@ -55,15 +147,15 @@ pre[class*="language-"] {
 	text-shadow: 0 1px white;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	text-align: left;
-	white-space: pre;
+	white-space: pre-wrap;
 	word-spacing: normal;
 	word-break: normal;
 	word-wrap: normal;
 	line-height: 1.5;
 
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
 
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
@@ -92,14 +184,15 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 
 /* Code blocks */
 pre[class*="language-"] {
-	padding: 1em;
-	margin: .5em 0;
+	padding: 0 1em;
+	margin: 0;
 	overflow: auto;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: #f5f2f0;
+  background: #fff;
+	/* background: #f5f2f0; */
 }
 
 /* Inline code */
