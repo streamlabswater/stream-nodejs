@@ -1,2 +1,1 @@
-# stream-customer-js-sdk
-
+# Streamlabs Customer API Nodejs Client
