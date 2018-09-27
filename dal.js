@@ -2,7 +2,7 @@
 
 // const qs = require('querystring')
 const wreck = require('wreck')
-const { api: { host } } = require('../config')
+const { api: { host } } = require('./config')
 
 module.exports = async function (props = {}) {
   const {
@@ -29,7 +29,7 @@ module.exports = async function (props = {}) {
   try {
     const response = await wreck.request(method, url, options)
     const body = await wreck.read(response, { json: 'strict' })
-
+    console.log('API RESPONSE', response)
     return {
       request: {
         url: resource,

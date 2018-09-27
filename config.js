@@ -10,6 +10,6 @@ module.exports = {
   },
   api: {
     redirectUrl: 'http://localhost:3000/auth',
-    host: 'https://0oolkxp0o6.execute-api.us-east-1.amazonaws.com'
+    host: 'https://7dr4wk6qd1.execute-api.us-east-1.amazonaws.com'
   }
 }

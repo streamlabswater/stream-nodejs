@@ -1,0 +1,49 @@
+{% layout 'layout' %}
+{% block rel %}
+  {% assign body = api.response.body %}
+  <h1>{{item}}</h1>
+  <form method="POST">
+    <h3>update mode</h3>
+    <fieldset>
+    <label>
+      <input type="radio" id="home" name="homeAway" value='home' {% if body.homeAway == 'home' %} checked {% endif %}/> Home
+    </label>
+    <label>
+    <input type="radio" id="away" name="homeAway" value='away' {% if body.homeAway == 'away' %} checked {% endif %} /> Away
+  </label>
+  </fieldset>
+    <button type="submit">update</button>
+  </form>
+  <div class='card'>
+    <h2>summary</h2>
+    <dl>
+      <div class='prop'>
+        <dt>locationId</dt>
+        <dd>{{body.locationId}}</dd>
+      </div>
+      <div class='prop'>
+        <dt>name</dt>
+        <dd>{{body.name}}</dd>
+      </div>
+      <div class='prop'>
+        <dt>mode (home / away)</dt>
+        <dd>{{body.homeAway}}</dd>
+      </div>
+    </dl>
+</div>
+<div class="card">
+  <h2>Linked</h2>
+  <div class='prop'>
+    <a href="/streamlabs/locations/{{body.locationId}}">Refresh</a>
+  </div>
+  <div class='prop'>
+    <a href="/streamlabs/locations/{{body.locationId}}/subscriptions">subscriptions</a>
+  </div>
+  <div class='prop'>
+    <a href="/streamlabs/locations/{{body.locationId}}/readings">readings</a>
+  </div>
+</div>
+{% endblock %}
+{% block pen %}
+  {% include 'resource' %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% layout 'layout' %}
+{% block rel %}
+  <h1>{{item}} subscriptions</h1>
+  {% assign body = api.response.body %}
+    <form method="POST" action="/streamlabs/locations/{{parentId}}/subscriptions">
+      <h3>subscription to alerts</h3>
+      <fieldset>
+      <label for='endpoint'>endpoint</label>
+      <input type="text" id="endpoint" name="endpoint"/>
+    </fieldset>
+      <button type="submit">Register</button>
+    </form>
+    <div class="card">
+      <h2>Linked</h2>
+      <div class='prop'>
+        <a href="/streamlabs/locations/{{parentId}}/subscriptions">Refresh</a>
+      </div>
+      <div class='prop'>
+        <a href="/streamlabs/locations/{{parentId}}">Location</a>
+      </div>
+    </div>
+{% endblock %}
+{% block pen %}
+  {% include 'resource' %}
+{% endblock %}

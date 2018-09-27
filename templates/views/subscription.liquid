@@ -1,0 +1,21 @@
+{% layout 'layout' %}
+{% block rel %}
+  <h1>item: {{item}}</h1>
+  <div id='actions'>
+    <!-- <form method="POST" action='/streamlabs/subscriptions/{{subscriptionId}}/confirm'>
+      <h3>confirm  subscription registration</h3>
+      <fieldset>
+      <label for='confirmationToken'>Confirmation Token</label>
+      <textarea id="confirmationToken" name="confirmationToken" rows="5"></textarea>
+    </fieldset>
+      <button type="submit">Update Registration</button>
+    </form> -->
+    <form method="POST" >
+      <h3>delete  subscription</h3>
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+{% endblock %}
+{% block pen %}
+  {% include 'resource' %}
+{% endblock %}

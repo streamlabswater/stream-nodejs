@@ -4,6 +4,7 @@
     <title>{{ title }}</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,500,700" rel="stylesheet">
     <link rel='stylesheet' href='/main.css' />
+    <link rel='stylesheet' href='/highlight.css' />
     <script type="text/javascript" src='/main.js'></script>
   </head>
   <body>
@@ -13,7 +14,9 @@
         {% block rel %}
         {% endblock %}
       </aside>
+      <main>
       {% block pen %}
       {% endblock %}
+    </main>
   </body>
 </html>

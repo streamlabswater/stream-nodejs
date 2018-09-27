@@ -20,8 +20,6 @@ router.get('/', async (req, res, next) => {
     oauth
   })
 
-  console.log('DATA', dal)
-
   return res.render('hello', {
     title: 'hello',
     api
@@ -45,18 +43,21 @@ router.get('/:collection', async (req, res, next) => {
   })
 })
 
-router.get('/:collection/:itemId', async (req, res, next) => {
-  const collection = req.params.collection
-  const item = collection.slice(0, -1)
-  const identifier = `${item}Id`
+/**
+ * Locations
+ */
+router.get('/locations/:locationId', async (req, res, next) => {
+  const collection = 'locations'
+  const item = 'location'
+  const identifier = 'locationId'
   const { oauth } = req.session
   const api = await dal({
     resource: req.path,
     oauth
   })
 
-  return res.render('item', {
-    title: `${collection}/${req.params.itemId}`,
+  return res.render('location', {
+    title: `locations/${req.params.locationId}`,
     collection,
     identifier,
     item,
@@ -64,10 +65,10 @@ router.get('/:collection/:itemId', async (req, res, next) => {
   })
 })
 
-router.post('/:collection/:itemId', async (req, res, next) => {
-  const collection = req.params.collection
-  const item = collection.slice(0, -1)
-  const identifier = `${item}Id`
+router.post('/locations/:locationId', async (req, res, next) => {
+  const collection = 'locations'
+  const item = 'location'
+  const identifier = 'locationId'
 
   const { oauth } = req.session
   const api = await dal({
@@ -77,8 +78,8 @@ router.post('/:collection/:itemId', async (req, res, next) => {
     oauth
   })
 
-  return res.render('item', {
-    title: `${collection}/${req.params.itemId}`,
+  return res.render('location', {
+    title: `locations/${req.params.locationId}`,
     collection,
     identifier,
     item,
@@ -86,5 +87,119 @@ router.post('/:collection/:itemId', async (req, res, next) => {
   })
 })
 
+/**
+ * Location subscription
+ */
+
+router.get('/locations/:locationId/subscriptions', async (req, res, next) => {
+  const collection = 'locations'
+  const item = 'location'
+  const identifier = 'locationId'
+  const parentId = req.params.locationId
+  const { oauth } = req.session
+  const api = await dal({
+    resource: req.path,
+    oauth
+  })
+
+  return res.render('location-subscription', {
+    title: `locations/${req.params.locationId}`,
+    collection,
+    identifier,
+    parentId,
+    item,
+    api
+  })
+})
+
+router.post('/locations/:locationId/subscriptions', async (req, res, next) => {
+  const collection = 'locations'
+  const item = 'location'
+  const identifier = `locationId`
+  const parentId = req.params.locationId
+  const { oauth } = req.session
+  const api = await dal({
+    resource: req.path,
+    method: 'POST',
+    payload: req.body,
+    oauth
+  })
+
+  return res.render('location-subscriptions', {
+    title: `locations/${req.params.locationId}`,
+    collection,
+    identifier,
+    parentId,
+    item,
+    api
+  })
+})
+
+/**
+ * location trends
+ */
+router.get('/locations/:locationId/readings/:period?', async (req, res, next) => {
+  const collection = 'locations'
+  const item = 'location'
+  const identifier = 'locationId'
+  const parentId = req.params.locationId
+  const { oauth } = req.session
+  const api = await dal({
+    resource: req.path,
+    oauth
+  })
+
+  return res.render('location-readings', {
+    title: `locations/${req.params.locationId}`,
+    collection,
+    identifier,
+    parentId,
+    item,
+    api
+  })
+})
+
+/**
+ * Subscriptions
+ */
+
+router.get('/subscriptions/:subscriptionId', async (req, res, next) => {
+  const { subscriptionId } = req.params
+  const collection = 'subscriptions'
+  const item = 'subscription'
+  const { oauth } = req.session
+  const api = await dal({
+    resource: req.path,
+    oauth
+  })
+
+  return res.render('subscription', {
+    title: `subscriptions/${subscriptionId}`,
+    subscriptionId,
+    collection,
+    item,
+    api
+  })
+})
+
+router.post('/subscriptions/:subscriptionId', async (req, res, next) => {
+  const { subscriptionId } = req.params
+  const { oauth } = req.session
+  const collection = 'subscriptions'
+  const item = 'subscription'
+  const api = await dal({
+    resource: `/subscriptions/${subscriptionId}`,
+    method: 'DELETE',
+    oauth
+  })
+
+  return res.render('subscription', {
+    title: `subscriptions/${subscriptionId}`,
+    subscriptionId,
+    collection,
+    item,
+    api
+  })
+})
 
 module.exports = router

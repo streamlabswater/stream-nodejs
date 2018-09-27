@@ -1,0 +1,26 @@
+{% layout 'layout' %}
+{% block rel %}
+  <h1>{{item}} trends</h1>
+  {% assign body = api.response.body %}
+    <div class="card">
+      <h2>Linked</h2>
+      <div class='prop'>
+        <a href="/streamlabs/locations/{{parentId}}">Location</a>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Filters</h2>
+      <div class='prop'>
+        <a href="/streamlabs/locations/{{parentId}}/readings/year">by Year</a>
+      </div>
+      <div class='prop'>
+        <a href="/streamlabs/locations/{{parentId}}/readings/month">by Month</a>
+      </div>
+      <div class='prop'>
+        <a href="/streamlabs/locations/{{parentId}}/readings/day">by Day</a>
+      </div>
+    </div>
+{% endblock %}
+{% block pen %}
+  {% include 'resource' %}
+{% endblock %}

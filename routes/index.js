@@ -32,7 +32,10 @@ router.get('/auth', async (req, res) => {
     res.redirect('/streamlabs')
   } catch (error) {
     console.error('Access Token Error', error.message)
-    return res.status(500).json({ message: 'Authentication failed' })
+    return res.render('oauth', {
+      title: 'OAUTH ERROR',
+      api: error
+    })
   }
 })
 
