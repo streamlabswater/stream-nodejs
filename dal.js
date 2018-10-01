@@ -29,7 +29,7 @@ module.exports = async function (props = {}) {
   try {
     const response = await wreck.request(method, url, options)
     const body = await wreck.read(response, { json: 'strict' })
-    console.log('API RESPONSE', response)
+    // console.log('API RESPONSE', response)
     return {
       request: {
         url: `/v1${resource}`,

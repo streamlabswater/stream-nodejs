@@ -5,11 +5,18 @@ module.exports = {
   },
   auth: {
     tokenHost: 'https://dev-streamlabs.auth.us-east-1.amazoncognito.com',
+    // tokenHost: 'https://dev-auth.streamlabswater.com',
     tokenPath: 'oauth2/token',
     authorizePath: 'login'
   },
   api: {
     redirectUrl: 'http://localhost:3000/auth',
-    host: 'https://7dr4wk6qd1.execute-api.us-east-1.amazonaws.com'
+    host: 'https://dev-api.streamlabswater.com'
+    // host: 'https://7dr4wk6qd1.execute-api.us-east-1.amazonaws.com/dev'
   }
 }
+
+// Cognito : https://dev-streamlabs.auth.us-east-1.amazoncognito.com
+
+// Dev API: d2izsq0loe8spr.cloudfront.net
+// Dev Auth: d1kvw2c7s73u17.cloudfront.net

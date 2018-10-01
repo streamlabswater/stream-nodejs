@@ -3,6 +3,8 @@ const path = require('path')
 const logger = require('morgan')
 const Liquid = require('liquidjs')
 const session = require('express-session')
+// const MemoryStore = require('memorystore')(session)
+const SQLiteStore = require('connect-sqlite3')(session)
 const Prism = require('prismjs')
 const loadLanguages = require('prismjs/components/')
 loadLanguages(['json'])
@@ -17,14 +19,14 @@ const engine = Liquid({
 engine.registerFilter('highlight', (payload) => Prism.highlight(JSON.stringify(payload, null, 4), Prism.languages.json, 'json'))
 
 const app = express()
-
 app.use(session({
+  store: new SQLiteStore(),
   name: 'stream.customer',
-  secret: 'hot water is essential',
+  secret: 'hot water',
   resave: true,
   saveUninitialized: true,
-  // store: new FileStore(),
   cookie: {
+    httpOnly: false,
     path: '/',
     maxAge: 24 * 60 * 60 * 1000
   }

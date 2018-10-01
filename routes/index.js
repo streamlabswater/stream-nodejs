@@ -10,7 +10,10 @@ const authorizationUri = oauth.authorizationCode.authorizeURL({
 })
 
 router.get('/', function (req, res, next) {
-  res.render('home', { title: 'Majo Moto' })
+  res.render('home', {
+    plan: 'single',
+    title: 'Majo Moto'
+  })
 })
 
 router.get('/connect', function (req, res, next) {

@@ -13,7 +13,7 @@ const startTime = {
 
 router.use(function (req, res, next) {
   const { oauth } = req.session
-
+  console.log('OAUTH', oauth)
   if (!oauth) {
     return res.redirect('/')
   }
