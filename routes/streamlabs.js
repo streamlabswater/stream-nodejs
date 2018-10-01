@@ -4,6 +4,13 @@ const express = require('express')
 const router = express.Router()
 const dal = require('../dal')
 
+const currentTime = Math.round((new Date()).getTime() / 1000)
+const startTime = {
+  byHour: (currentTime - 86400), // 24hrs
+  byDay: (currentTime - 604800), // 7 days
+  byMonth: (currentTime - 7884000) // 3 months
+}
+
 router.use(function (req, res, next) {
   const { oauth } = req.session
 
@@ -60,6 +67,7 @@ router.get('/locations/:locationId', async (req, res, next) => {
     title: `locations/${req.params.locationId}`,
     collection,
     identifier,
+    startTime,
     item,
     api
   })
@@ -102,7 +110,7 @@ router.get('/locations/:locationId/subscriptions', async (req, res, next) => {
     oauth
   })
 
-  return res.render('location-subscription', {
+  return res.render('location-subscriptions', {
     title: `locations/${req.params.locationId}`,
     collection,
     identifier,
@@ -136,16 +144,17 @@ router.post('/locations/:locationId/subscriptions', async (req, res, next) => {
 })
 
 /**
- * location trends
+ * location water usage readings
  */
-router.get('/locations/:locationId/readings/:period?', async (req, res, next) => {
+router.get('/locations/:locationId/readings/water-usage/:summary?', async (req, res, next) => {
   const collection = 'locations'
   const item = 'location'
   const identifier = 'locationId'
   const parentId = req.params.locationId
   const { oauth } = req.session
+
   const api = await dal({
-    resource: req.path,
+    resource: req.url,
     oauth
   })
 
@@ -154,6 +163,7 @@ router.get('/locations/:locationId/readings/:period?', async (req, res, next) =>
     collection,
     identifier,
     parentId,
+    startTime,
     item,
     api
   })

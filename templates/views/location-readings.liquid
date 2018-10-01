@@ -1,6 +1,6 @@
 {% layout 'layout' %}
 {% block rel %}
-  <h1>{{item}} trends</h1>
+  <h1>{{item}} readings</h1>
   {% assign body = api.response.body %}
     <div class="card">
       <h2>Linked</h2>
@@ -9,15 +9,18 @@
       </div>
     </div>
     <div class="card">
-      <h2>Filters</h2>
+      <h2>Water Usage</h2>
       <div class='prop'>
-        <a href="/streamlabs/locations/{{parentId}}/readings/year">by Year</a>
+        <a href="/streamlabs/locations/{{parentId}}/readings/water-usage/summary">Summary</a>
       </div>
       <div class='prop'>
-        <a href="/streamlabs/locations/{{parentId}}/readings/month">by Month</a>
+        <a href="/streamlabs/locations/{{parentId}}/readings/water-usage?groupby=hour&startTime={{startTime.byHour}}">by Hour</a>
       </div>
       <div class='prop'>
-        <a href="/streamlabs/locations/{{parentId}}/readings/day">by Day</a>
+        <a href="/streamlabs/locations/{{parentId}}/readings/water-usage?groupby=day&startTime={{startTime.byDay}}">by Day</a>
+      </div>
+      <div class='prop'>
+        <a href="/streamlabs/locations/{{parentId}}/readings/water-usage?groupby=month&startTime={{startTime.byMonth}}">by Month</a>
       </div>
     </div>
 {% endblock %}

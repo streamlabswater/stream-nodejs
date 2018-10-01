@@ -32,15 +32,27 @@
     </dl>
 </div>
 <div class="card">
-  <h2>Linked</h2>
+  <!-- <h2>Linked</h2> -->
   <div class='prop'>
     <a href="/streamlabs/locations/{{body.locationId}}">Refresh</a>
   </div>
   <div class='prop'>
-    <a href="/streamlabs/locations/{{body.locationId}}/subscriptions">subscriptions</a>
+    <a href="/streamlabs/locations/{{body.locationId}}/subscriptions">Subscriptions</a>
+  </div>
+</div>
+<div class="card">
+  <h2>Water Usage</h2>
+  <div class='prop'>
+    <a href="/streamlabs/locations/{{body.locationId}}/readings/water-usage/summary">Summary</a>
   </div>
   <div class='prop'>
-    <a href="/streamlabs/locations/{{body.locationId}}/readings">readings</a>
+    <a href="/streamlabs/locations/{{body.locationId}}/readings/water-usage?groupby=hour&startTime={{startTime.byHour}}">by Hour</a>
+  </div>
+  <div class='prop'>
+    <a href="/streamlabs/locations/{{body.locationId}}/readings/water-usage?groupby=day&startTime={{startTime.byDay}}">by Day</a>
+  </div>
+  <div class='prop'>
+    <a href="/streamlabs/locations/{{body.locationId}}/readings/water-usage?groupby=month&startTime={{startTime.byMonth}}">by Month</a>
   </div>
 </div>
 {% endblock %}

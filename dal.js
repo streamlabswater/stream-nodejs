@@ -13,7 +13,7 @@ module.exports = async function (props = {}) {
   } = props
 
   const { id_token: token } = oauth
-  const url = `${host}/dev/v1${resource}`
+  const url = `${host}/v1${resource}`
 
   const options = {
     headers: {
@@ -32,7 +32,7 @@ module.exports = async function (props = {}) {
     console.log('API RESPONSE', response)
     return {
       request: {
-        url: resource,
+        url: `/v1${resource}`,
         method,
         body: payload
       },
