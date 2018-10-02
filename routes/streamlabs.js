@@ -3,6 +3,7 @@
 const express = require('express')
 const router = express.Router()
 const dal = require('../dal')
+const stream = require('../stream.config.json')
 
 const currentTime = Math.round((new Date()).getTime() / 1000)
 const startTime = {
@@ -21,8 +22,9 @@ router.use(function (req, res, next) {
 })
 
 router.get('/', async (req, res, next) => {
-  const { oauth } = req.session
+  const { oauth, env } = req.session
   const api = await dal({
+    host: stream[env].host,
     resource: '/hello/world',
     oauth
   })
@@ -36,8 +38,9 @@ router.get('/', async (req, res, next) => {
 router.get('/:collection', async (req, res, next) => {
   const collection = req.params.collection
   const identifier = `${collection.slice(0, -1)}Id`
-  const { oauth } = req.session
+  const { oauth, env } = req.session
   const api = await dal({
+    host: stream[env].host,
     resource: req.path,
     oauth
   })
@@ -57,8 +60,9 @@ router.get('/locations/:locationId', async (req, res, next) => {
   const collection = 'locations'
   const item = 'location'
   const identifier = 'locationId'
-  const { oauth } = req.session
+  const { oauth, env } = req.session
   const api = await dal({
+    host: stream[env].host,
     resource: req.path,
     oauth
   })
@@ -78,8 +82,9 @@ router.post('/locations/:locationId', async (req, res, next) => {
   const item = 'location'
   const identifier = 'locationId'
 
-  const { oauth } = req.session
+  const { oauth, env } = req.session
   const api = await dal({
+    host: stream[env].host,
     resource: req.path,
     method: 'PUT',
     payload: req.body,
@@ -104,8 +109,9 @@ router.get('/locations/:locationId/subscriptions', async (req, res, next) => {
   const item = 'location'
   const identifier = 'locationId'
   const parentId = req.params.locationId
-  const { oauth } = req.session
+  const { oauth, env } = req.session
   const api = await dal({
+    host: stream[env].host,
     resource: req.path,
     oauth
   })
@@ -125,8 +131,9 @@ router.post('/locations/:locationId/subscriptions', async (req, res, next) => {
   const item = 'location'
   const identifier = `locationId`
   const parentId = req.params.locationId
-  const { oauth } = req.session
+  const { oauth, env } = req.session
   const api = await dal({
+    host: stream[env].host,
     resource: req.path,
     method: 'POST',
     payload: req.body,
@@ -151,9 +158,10 @@ router.get('/locations/:locationId/readings/water-usage/:summary?', async (req, 
   const item = 'location'
   const identifier = 'locationId'
   const parentId = req.params.locationId
-  const { oauth } = req.session
+  const { oauth, env } = req.session
 
   const api = await dal({
+    host: stream[env].host,
     resource: req.url,
     oauth
   })
@@ -177,8 +185,9 @@ router.get('/subscriptions/:subscriptionId', async (req, res, next) => {
   const { subscriptionId } = req.params
   const collection = 'subscriptions'
   const item = 'subscription'
-  const { oauth } = req.session
+  const { oauth, env } = req.session
   const api = await dal({
+    host: stream[env].host,
     resource: req.path,
     oauth
   })
@@ -194,10 +203,11 @@ router.get('/subscriptions/:subscriptionId', async (req, res, next) => {
 
 router.post('/subscriptions/:subscriptionId', async (req, res, next) => {
   const { subscriptionId } = req.params
-  const { oauth } = req.session
+  const { oauth, env } = req.session
   const collection = 'subscriptions'
   const item = 'subscription'
   const api = await dal({
+    host: stream[env].host,
     resource: `/subscriptions/${subscriptionId}`,
     method: 'DELETE',
     oauth

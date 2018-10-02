@@ -1,11 +1,10 @@
 'use strict'
 
-// const qs = require('querystring')
 const wreck = require('wreck')
-const { api: { host } } = require('./config')
 
 module.exports = async function (props = {}) {
   const {
+    host,
     resource = '/hello/world',
     method = 'GET',
     payload,
