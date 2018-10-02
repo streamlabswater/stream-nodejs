@@ -3,7 +3,6 @@ const path = require('path')
 const logger = require('morgan')
 const Liquid = require('liquidjs')
 const session = require('express-session')
-// const MemoryStore = require('memorystore')(session)
 const SQLiteStore = require('connect-sqlite3')(session)
 const Prism = require('prismjs')
 const loadLanguages = require('prismjs/components/')
@@ -41,6 +40,13 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
+
+app.use(function (req, res, next) {
+  req.session.env = req.session.env || 'dev'
+  res.locals.env = req.session.env
+  req.session.save()
+  next()
+})
 
 app.use('/', indexRouter)
 app.use('/streamlabs', streamlabsRouter)

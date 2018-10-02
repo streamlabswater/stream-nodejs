@@ -1,0 +1,38 @@
+{
+  "dev": {
+    "host": "https://dev-api.streamlabswater.com",
+    "client": {
+      "id": "69uj9piv3a8qf744k7dv4p5k7a",
+      "secret": "1hp8at2os5bc47rilqrmnmaqe2rakm1g3lajpuuj8g1q7er8rdm0"
+    },
+    "auth": {
+      "tokenHost": "https://dev-auth.streamlabswater.com",
+      "tokenPath": "oauth2/token",
+      "authorizePath": "login"
+    }
+  },
+  "qa": {
+    "host": "https://qa-api.streamlabswater.com",
+    "client": {
+      "id": "h43nddhfslss78m79kqpq84li",
+      "secret": "1ldom9q5cogl1cmd59jt9ila53ll4knifk0gp44gl96qkcjvm9nk"
+    },
+    "auth": {
+      "tokenHost": "https://qa-auth.streamlabswater.com",
+      "tokenPath": "oauth2/token",
+      "authorizePath": "login"
+    }
+  },
+  "prod": {
+    "host": "https://api.streamlabswater.com",
+    "client": {
+      "id": "dhctb5pg3i0gth5cce7s1ucki",
+      "secret": "6cctl0dame7qqbhe532l0410gsg7uffrnboclv2fqh8nebaqc75"
+    },
+    "auth": {
+      "tokenHost": "https://auth.streamlabswater.com",
+      "tokenPath": "oauth2/token",
+      "authorizePath": "login"
+    }
+  }
+}

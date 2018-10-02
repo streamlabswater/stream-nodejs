@@ -2,9 +2,18 @@
 
 {% block single %}
   <div class='single'>
+    <form method="POST" class='inline'>
+      <!-- <h3>set environment</h3> -->
+      <fieldset>
+        <button id="select-dev" name="env" type="submit" value="dev">Development</button>
+        <button id="select-qa" name="env" type="submit" value="qa">QA</button>
+        <button id="select-prod" name="env" type="submit" value="prod">Production</button>
+      </fieldset>
+
+    </form>
     <section>
-      <p>A streamlabs customer api (node) client</p>
+      <h3>A streamlabs customer api (node) client</h3>
       <a href='/connect' class='btn'>Connect to Streamlabs</a>
-    <section>
+    </section>
   </div>
 {% endblock %}

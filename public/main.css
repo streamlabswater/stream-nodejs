@@ -8,6 +8,7 @@ body {
   margin: 0;
   padding: 0;
   color: #555;
+  font-size: 0.9rem;
 }
 h1, h2, h3, h4 {
   font-family: 'Montserrat', sans-serif;
@@ -75,7 +76,6 @@ button,
   color: #fff;
   border: 1px solid transparent;
   border-radius: 3px;
-  min-width: 4em;
   padding: 0.5rem 1.5rem;
   margin: 1em;
   transition: all 0.3s ease 0s;
@@ -99,6 +99,17 @@ nav {
   background: #00aeff;
   color: #fff;
   padding: 1em;
+}
+
+.dev nav {
+  background: #496bad;
+}
+
+.qa nav{
+  background: #637996;
+}
+.prod nav{
+  background: #68b60e;
 }
 
 nav a {
@@ -210,8 +221,90 @@ dd {
 }
 
 .single {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+}
+
+.single section {
+  height: 100vh;
+  padding: 2em;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.single form {
+  margin: 2em;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 100px);
+}
+
+.single .btn {
+  background: #fff;
+  color: #333;
+}
+
+.single .btn:hover {
+  text-decoration: none;
+  background: #ffffff80;
+}
+
+.dev .single section {
+  background: #496bad;
+}
+
+.qa .single section {
+  background: #637996;
+}
+
+.prod .single section {
+  background: #68b60e;
+}
+
+
+.inline button {
+  margin: 0;
+}
+
+#select-dev {
+  background: #496bad;
+}
+
+#select-qa {
+  background: #637996;
+}
+
+#select-prod {
+  background: #68b60e;
+}
+
+#select-dev:hover,
+#select-dev:active {
+  background: #fff;
+  color: #496bad;
+  border: 1px solid #cccccc50;
+}
+
+#select-qa:hover,
+#select-qa:active {
+  background: #fff;
+  color: #637996;
+  border: 1px solid #cccccc50;
+}
+
+#select-prod:hover,
+#select-prod:active {
+  background: #fff;
+  color: #68b60e;
+  border: 1px solid #cccccc50;
+}
+
+#signout {
+  float: right;
 }
