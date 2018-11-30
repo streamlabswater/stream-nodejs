@@ -4,13 +4,19 @@ const qs = require('querystring')
 const oauth = require('../lib/api.oauth')
 const config = require('../lib/api.config')
 
+/**
+ * home route
+ */
 router.get('/', function (req, res, next) {
   res.render('home', {
-    plan: 'uno',
+    layout: 'uno',
     title: 'Majo Moto'
   })
 })
 
+/**
+ * OAUTH2 request code
+ */
 router.get('/connect', function (req, res, next) {
   const authorizationUri = oauth.authorizationCode.authorizeURL({
     redirect_uri: config.redirectUri
@@ -18,6 +24,9 @@ router.get('/connect', function (req, res, next) {
   res.redirect(qs.unescape(authorizationUri))
 })
 
+/**
+ * OAUTH2 request token
+ */
 router.get('/auth', async (req, res) => {
   const { code } = req.query
   const tokenConfig = {
@@ -48,6 +57,9 @@ router.get('/auth', async (req, res) => {
   }
 })
 
+/**
+ * Signout
+ */
 router.get('/signout', function (req, res, next) {
   const { auth: { tokenHost }, client: { id }, signoutUri } = config
   const url = `${tokenHost}/logout?client_id=${id}&logout_uri=${signoutUri}`

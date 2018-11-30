@@ -1,4 +1,5 @@
 'use strict'
+
 const express = require('express')
 const path = require('path')
 const logger = require('morgan')
@@ -9,13 +10,13 @@ const Prism = require('prismjs')
 const loadLanguages = require('prismjs/components/')
 loadLanguages(['json', 'http'])
 
-const indexRouter = require('./routes')
-const streamlabsRouter = require('./routes/streamlabs')
+/**
+ * setup ui engine and add filters
+ */
 const engine = Liquid({
   root: path.join(__dirname, 'templates'),
   extname: '.liquid'
 })
-
 engine.registerFilter('highlight', (source, lang) => {
   if (!source) {
     return
@@ -27,7 +28,6 @@ engine.registerFilter('highlight', (source, lang) => {
 
   return Prism.highlight(source, Prism.languages[lang], lang)
 })
-
 engine.registerFilter('formatted', (source) => JSON.stringify(source, null, 2))
 
 const app = express()
@@ -44,7 +44,9 @@ app.use(session({
   }
 }))
 
-// view engine setup
+/**
+ * App view setup directories
+ */
 app.engine('liquid', engine.express())
 app.set('views', ['./templates/partials', './templates/views'])
 app.set('view engine', 'liquid')
@@ -61,8 +63,8 @@ app.use(function (req, res, next) {
   next()
 })
 
-app.use('/', indexRouter)
-app.use('/streamlabs', streamlabsRouter)
+app.use('/', require('./routes'))
+app.use('/streamlabs', require('./routes/streamlabs'))
 
 app.use(function (err, req, res, next) {
   res.locals.message = err.message
