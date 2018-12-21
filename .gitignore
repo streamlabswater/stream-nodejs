@@ -1,0 +1,13 @@
+.env*
+!.env.schema
+.idea
+.DS_Store
+*.log
+node_modules
+dist
+coverage
+.vscode
+*.zip
+*.tgz
+*.lock
+sessions

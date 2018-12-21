@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1em;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #555;
+}
+h1, h2, h3, h4 {
+  font-family: sans-serif;
+  font-weight: 300;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  text-decoration: underline dotted;
+}
+
+
+form,
+.card {
+  margin: 1em 0;
+  padding:0;
+  position: relative;
+  display: block;
+  border: 1px solid #efefef50;
+  border-radius: 3px;
+  background-color: #efefef50;
+}
+
+form > h3 {
+  display: block;
+  padding: 0.5em 1em;
+  background: #efefef80;
+  margin: 0;
+}
+
+fieldset {
+  border: none;
+}
+
+label {
+  display: block;
+  margin: 1em 0 0.5em;
+}
+
+legend {
+  text-transform: uppercase;
+}
+
+input[type="text"] , textarea {
+  display: block;
+  width: 100%;
+  background: #ffffff90;
+  padding: 0.5em;
+  border: 1px solid #efefef;
+  border-radius: 3px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+}
+
+
+button,
+.btn {
+  display: inline-block;
+  font-size: 1em;
+  background: #00aeff;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 0.5rem 1.5rem;
+  margin: 1em;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+}
+
+.btn:hover,
+.btn:active,
+button:hover,
+button:active {
+  background: #fff;
+  color: #00aeff;
+  border: 1px solid #cccccc50;
+}
+
+button:focus{
+  outline:0;
+}
+
+nav {
+  background: #00aeff;
+  color: #fff;
+  padding: 2em;
+}
+
+nav a {
+  color: #fff;
+  opacity: 0.9;
+  display: inline-block;
+}
+
+nav a:hover,
+nav a:active {
+  opacity: 1;
+}
+
+main {
+  background: #24272e;
+  color: #fff;
+}
+
+aside ul li {
+  list-style: none;
+}
+
+aside ul li:before {
+  content: "\2014\a0"
+}
+
+aside, main {
+  padding: 1em;
+  min-height: 100vh;
+}
+
+section {
+  display: block;
+  position: relative;
+}
+
+section h2 {
+  font-weight: 300;
+}
+
+dl {
+  margin: 1em;
+}
+
+dt {
+  color: rgba(51, 51, 51, 0.4);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+dd {
+  padding: 0;
+  margin: 0;
+}
+
+.prop {
+  padding: 1em;
+
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 420px auto;
+  grid-gap: 1em;
+}
+
+.card h2 {
+  font-size: 1.17em;
+}
+
+.card h2,
+.card h3 {
+  display: block;
+  padding: 0.5em 1em;
+  background: #efefef80;
+  margin: 0;
+}
+
+#uno {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  color: #fff;
+  background: #496bad;
+}
+
+.inline button {
+  margin: 0;
+}
+
+
+#signout {
+  float: right;
+}
