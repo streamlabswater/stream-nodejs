@@ -18,4 +18,11 @@ Accompanying documentation is available at [https://developer.streamlabswater.co
 
 ```
 
-2. create a `.env` file w
+2. create a `.env` file from the provided `.env.schema`
+
+3. Install dependancies then start the app
+```
+npm i && npm run start
+```
+
+The client is available on [http://127.0.0.1:3000](http://127.0.0.1:3000)
