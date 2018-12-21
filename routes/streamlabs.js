@@ -7,7 +7,7 @@ const oauth = require('../lib/api.oauth')
 const config = require('../lib/api.config')
 const { subDays, subMonths, subYears } = require('date-fns')
 
-const currentTime = Math.round((new Date()).getTime() / 1000)
+const currentTime = new Date()
 const startTime = {
   day: subDays(currentTime, 1).toISOString(), // 24hrs 1
   month: subMonths(currentTime, 1).toISOString(), // 30 days

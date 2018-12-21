@@ -46,13 +46,13 @@
     <a href="/streamlabs/locations/{{body.locationId}}/readings/water-usage/summary">Summary</a>
   </div>
   <div class='prop'>
-    <a href="/streamlabs/locations/{{body.locationId}}/readings/water-usage?groupby=hour&startTime={{startTime.byHour}}">by Hour</a>
+    <a href="/streamlabs/locations/{{body.locationId}}/readings/water-usage?groupby=hour&startTime={{startTime.day}}">by Hour</a>
   </div>
   <div class='prop'>
-    <a href="/streamlabs/locations/{{body.locationId}}/readings/water-usage?groupby=day&startTime={{startTime.byDay}}">by Day</a>
+    <a href="/streamlabs/locations/{{body.locationId}}/readings/water-usage?groupby=day&startTime={{startTime.day}}">by Day</a>
   </div>
   <div class='prop'>
-    <a href="/streamlabs/locations/{{body.locationId}}/readings/water-usage?groupby=month&startTime={{startTime.byMonth}}">by Month</a>
+    <a href="/streamlabs/locations/{{body.locationId}}/readings/water-usage?groupby=month&startTime={{startTime.month}}">by Month</a>
   </div>
 </div>
 {% endblock %}

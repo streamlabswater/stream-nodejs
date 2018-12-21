@@ -1,4 +1,5 @@
 .env*
+!.env.schema
 .idea
 .DS_Store
 *.log
