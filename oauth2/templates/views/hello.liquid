@@ -1,0 +1,14 @@
+{% layout 'layout' %}
+{% block rel %}
+<h1>{{title}}</h1>
+<section>
+  <ul >
+    {% for greeting in client.response.body %}
+      <li>{{greeting}}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}
+{% block pen %}
+  {% include 'resource' %}
+{% endblock %}

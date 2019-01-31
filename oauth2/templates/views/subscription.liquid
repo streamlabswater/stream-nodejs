@@ -1,0 +1,13 @@
+{% layout 'layout' %}
+{% block rel %}
+  <h1>{{item}}</h1>
+  <div id='actions'>
+    <form method="POST" >
+      <h3>delete  subscription</h3>
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+{% endblock %}
+{% block pen %}
+  {% include 'resource' %}
+{% endblock %}
