@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='/main.css' />
+    <link rel='stylesheet' href='/highlight.css' />
+  </head>
+  <body>
+    {% block single %}
+    {% endblock  %}
+    {% unless layout == 'uno'%}
+    {% include 'nav' %}
+      <div id='container'>
+        <aside>
+          {% block rel %}
+          {% endblock %}
+        </aside>
+        {% block pen %}
+        {% endblock %}
+      </div>
+    {% endunless %}
+  </body>
+</html>

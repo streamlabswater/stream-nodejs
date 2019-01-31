@@ -1,0 +1,32 @@
+{
+  "name": "@streamlabswater/customer-api-nodejs-oauth2-client",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon",
+    "debug": "nodemon  --inspect",
+    "test": "standard"
+  },
+  "author": "Streamlabs Water",
+  "license": "MIT",
+  "homepage": "https://streamlabswater.com/",
+  "main": "./bin/www",
+  "dependencies": {
+    "connect-sqlite3": "^0.9.11",
+    "cookie-session": "^2.0.0-beta.3",
+    "date-fns": "^1.29.0",
+    "dotenv-extended": "^2.3.0",
+    "express": "~4.16.0",
+    "express-session": "^1.15.6",
+    "liquidjs": "^6.1.1",
+    "morgan": "~1.9.0",
+    "prismjs": "^1.15.0",
+    "serve-favicon": "^2.5.0",
+    "simple-oauth2": "^2.2.1",
+    "wreck": "^14.1.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7",
+    "standard": "^12.0.1"
+  }
+}
