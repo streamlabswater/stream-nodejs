@@ -13,10 +13,11 @@ loadLanguages(['json', 'http'])
 /**
  * setup ui engine and add filters
  */
-const engine = Liquid({
-  root: path.join(__dirname, 'templates'),
+const engine = new Liquid({
+  root: path.join(__dirname, 'templates/'),
   extname: '.liquid'
 })
+
 engine.registerFilter('highlight', (source, lang) => {
   if (!source) {
     return
