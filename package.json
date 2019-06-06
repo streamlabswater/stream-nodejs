@@ -1,0 +1,7 @@
+{
+  "name": "@streamlabs/customer-client-nodejs",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
