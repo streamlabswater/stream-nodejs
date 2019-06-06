@@ -7,7 +7,7 @@
     "debug": "nodemon  --inspect",
     "test": "standard"
   },
-  "author": "Streamlabs Water",
+  "author": "StreamLabs",
   "license": "MIT",
   "homepage": "https://streamlabswater.com/",
   "main": "./bin/www",
