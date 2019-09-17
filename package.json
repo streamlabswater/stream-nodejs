@@ -1,7 +1,30 @@
 {
-  "name": "@streamlabs/customer-client-nodejs",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ]
+  "name": "@streamlabswater/customer-nodejs",
+  "version": "1.0.0",
+  "author": "StreamLabs <support@streamlabswater.com> (https://www.streamlabswater.com/)",
+  "contributors": [
+    "Moses Ngone <moses@mospired.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:streamlabswater/streamlabs-nodejs.git"
+  },
+  "main": "lib/StreamLabs.js",
+  "scripts": {
+    "build": "nodemon scripts/build.js"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.3.0",
+    "nodemon": "^1.19.2",
+    "standard": "^14.1.0"
+  },
+  "dependencies": {
+    "@hapi/wreck": "^15.0.2",
+    "date-fns": "^2.2.1",
+    "query-string": "^6.8.3"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  }
 }
