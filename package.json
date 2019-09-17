@@ -11,13 +11,14 @@
   },
   "main": "lib/StreamLabs.js",
   "scripts": {
-    "test": "nyc ava",
-    "watch:test": "nyc ava --watch",
-    "watch:build": "nodemon scripts/build.js"
+    "test": "NODE_ENV=test nyc ava",
+    "test:watch": "NODE_ENV=test nyc ava --watch",
+    "build:watch": "nodemon scripts/build.js"
   },
   "devDependencies": {
     "ava": "^2.4.0",
     "babel-eslint": "^10.0.3",
+    "dotenv-extended": "^2.4.0",
     "eslint": "^6.3.0",
     "nodemon": "^1.19.2",
     "nyc": "^14.1.1",
@@ -33,7 +34,9 @@
     "parser": "babel-eslint"
   },
   "ava": {
-    "files": ["!**/*.mock.*"],
+    "files": [
+      "!**/*.mock.*"
+    ],
     "tap": true,
     "verbose": true
   }

@@ -1,12 +1,12 @@
+
 import test from 'ava'
 import StreamLabs from '../lib/StreamLabs.js'
 import { locations, location } from './api.mock'
 
+require('dotenv-extended').load()
+
 function setup () {
-  const stream = new StreamLabs({
-    host: 'https://dev-api.streamlabswater.com',
-    apiKey: 'n3EHGCGgi_2Stg9xJ8mn0YQcRZCTXZqI2Qsei-_qHysBCx7QJ2oxXQ'
-  })
+  const stream = new StreamLabs()
 
   return stream
 }
