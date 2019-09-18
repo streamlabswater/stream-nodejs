@@ -21,8 +21,7 @@
   "main": "./lib/stream.js",
   "scripts": {
     "test": "NODE_ENV=test nyc ava",
-    "test:watch": "NODE_ENV=test nyc ava --watch",
-    "build:watch": "nodemon --inspect scripts/build.js"
+    "test:watch": "NODE_ENV=test nyc ava --watch"
   },
   "devDependencies": {
     "ava": "^2.4.0",
