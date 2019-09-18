@@ -1,6 +1,6 @@
 {
   "name": "@streamlabswater/stream",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "StreamLabs <support@streamlabswater.com> (https://www.streamlabswater.com/)",
   "description": "StreamLabs Water API wrapper",
   "keywords": [
