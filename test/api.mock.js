@@ -15,5 +15,55 @@ module.exports = {
     devices: [],
     alerts: [],
     subscriptionIds: []
+  },
+  alert: {
+    deviceId: '',
+    type: '',
+    active: false,
+    startTime: 0,
+    detectedTime: 0,
+    stopTime: 0,
+    peakValue: 0,
+    peakStatus: '',
+    subscriptionId: '',
+    locationId: ''
+  },
+  locationSubscriptions: {
+    pageCount: 1,
+    perPage: 0,
+    page: 1,
+    total: 1,
+    subscriptions: [
+      {
+        subscriptionId: '',
+        locationId: '',
+        endpoint: '',
+        status: ''
+      }
+    ]
+  },
+  subscriptionConfirmation: {
+    confirmationUri: '',
+    confirmationToken: ''
+  },
+  subscriptions: {
+    pageCount: 1,
+    perPage: 0,
+    page: 1,
+    total: 1,
+    subscriptions: [
+      {
+        subscriptionId: '',
+        locationId: '',
+        endpoint: '',
+        status: ''
+      }
+    ]
+  },
+  subscription: {
+    subscriptionId: '',
+    locationId: '',
+    endpoint: '',
+    status: ''
   }
 }
