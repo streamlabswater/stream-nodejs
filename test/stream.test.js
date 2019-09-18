@@ -1,13 +1,12 @@
 
 import test from 'ava'
-import StreamLabs from '../lib'
+import Stream from '../lib/stream.js'
 import { locations, location } from './api.mock'
 import { load } from 'dotenv-extended'
 
 function setup () {
   load({ path: './.env.test' })
-  const stream = new StreamLabs()
-  return stream
+  return new Stream()
 }
 
 test('successfully gets all locations', async t => {

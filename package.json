@@ -16,9 +16,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:streamlabswater/streamlabs-nodejs.git"
+    "url": "git@github.com:streamlabswater/stream-nodejs.git"
   },
-  "main": "./lib/streamlabswater.js",
+  "main": "./lib/stream.js",
   "scripts": {
     "test": "NODE_ENV=test nyc ava",
     "test:watch": "NODE_ENV=test nyc ava --watch",
@@ -48,6 +48,6 @@
       "!**/*.mock.*"
     ],
     "tap": true,
-    "verbose": false
+    "verbose": true
   }
 }
