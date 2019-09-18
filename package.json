@@ -47,7 +47,6 @@
     "files": [
       "!**/*.mock.*"
     ],
-    "tap": true,
     "verbose": true
   }
 }
