@@ -1,13 +1,12 @@
 
 import test from 'ava'
-import StreamLabs from '../lib/StreamLabs.js'
+import StreamLabs from '../lib'
 import { locations, location } from './api.mock'
-
-require('dotenv-extended').load()
+import { load } from 'dotenv-extended'
 
 function setup () {
+  load({ path: './.env.test' })
   const stream = new StreamLabs()
-
   return stream
 }
 
@@ -27,5 +26,12 @@ test('throws exception when no locationId is provided when getting one location'
   const stream = setup()
   await t.throwsAsync(async () => {
     return stream.location.get()
-  }, { instanceOf: TypeError, message: 'Missing locationId' })
+  }, { instanceOf: Error, code: 400 })
+})
+
+test('throws exception when invalid locationId is provided when getting one location', async t => {
+  const stream = setup()
+  await t.throwsAsync(async () => {
+    return stream.location.get('invalid-locationid')
+  }, { instanceOf: Error, code: 404 })
 })

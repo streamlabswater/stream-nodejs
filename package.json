@@ -1,7 +1,16 @@
 {
-  "name": "@streamlabswater/customer-nodejs",
+  "name": "@streamlabswater/stream",
   "version": "1.0.0",
   "author": "StreamLabs <support@streamlabswater.com> (https://www.streamlabswater.com/)",
+  "description": "StreamLabs Water API wrapper",
+  "keywords": [
+    "streamlabs",
+    "streamlabswater",
+    "iot",
+    "automation",
+    "water",
+    "api"
+  ],
   "contributors": [
     "Moses Ngone <moses@mospired.com>"
   ],
@@ -9,13 +18,14 @@
     "type": "git",
     "url": "git@github.com:streamlabswater/streamlabs-nodejs.git"
   },
-  "main": "lib/StreamLabs.js",
+  "main": "./lib/streamlabswater.js",
   "scripts": {
     "test": "NODE_ENV=test nyc ava",
     "test:watch": "NODE_ENV=test nyc ava --watch",
-    "build:watch": "nodemon scripts/build.js"
+    "build:watch": "nodemon --inspect scripts/build.js"
   },
   "devDependencies": {
+    "@hapi/boom": "^7.4.3",
     "ava": "^2.4.0",
     "babel-eslint": "^10.0.3",
     "dotenv-extended": "^2.4.0",
@@ -38,6 +48,6 @@
       "!**/*.mock.*"
     ],
     "tap": true,
-    "verbose": true
+    "verbose": false
   }
 }
