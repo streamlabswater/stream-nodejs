@@ -1,13 +1,35 @@
 'use strict'
 
+const Stream = require('../lib/stream.js')
+const { load } = require('dotenv-extended')
+
 module.exports = {
-  locations: {
-    locations: [],
-    page: 0,
-    pageCount: 0,
-    perPage: 0,
-    total: 0
+  setup: () => {
+    load({ path: `./.env.${process.env.STREAMLABS_TEST_ENV}` })
+    return new Stream()
   },
+  locations: [
+    {
+      name: 'locations',
+      type: Array
+    },
+    {
+      name: 'page',
+      type: 'number'
+    },
+    {
+      name: 'pageCount',
+      type: 'number'
+    },
+    {
+      name: 'perPage',
+      type: 'number'
+    },
+    {
+      name: 'total',
+      type: 'number'
+    }
+  ],
   location: {
     locationId: '',
     locationName: '',
