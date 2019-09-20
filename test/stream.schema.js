@@ -8,31 +8,16 @@ module.exports = {
     load({ path: `./.env.${process.env.STREAMLABS_TEST_ENV}` })
     return new Stream()
   },
-  locations: [
-    {
-      name: 'locations',
-      type: Array
-    },
-    {
-      name: 'page',
-      type: 'number'
-    },
-    {
-      name: 'pageCount',
-      type: 'number'
-    },
-    {
-      name: 'perPage',
-      type: 'number'
-    },
-    {
-      name: 'total',
-      type: 'number'
-    }
-  ],
+  locations: {
+    locations: [],
+    page: 0,
+    perPage: 0,
+    pageCount: 0,
+    total: 0
+  },
   location: {
     locationId: '',
-    locationName: '',
+    name: '',
     homeAway: '',
     devices: [],
     alerts: [],
@@ -50,20 +35,6 @@ module.exports = {
     subscriptionId: '',
     locationId: ''
   },
-  locationSubscriptions: {
-    pageCount: 1,
-    perPage: 0,
-    page: 1,
-    total: 1,
-    subscriptions: [
-      {
-        subscriptionId: '',
-        locationId: '',
-        endpoint: '',
-        status: ''
-      }
-    ]
-  },
   subscriptionConfirmation: {
     confirmationUri: '',
     confirmationToken: ''
@@ -73,19 +44,26 @@ module.exports = {
     perPage: 0,
     page: 1,
     total: 1,
-    subscriptions: [
-      {
-        subscriptionId: '',
-        locationId: '',
-        endpoint: '',
-        status: ''
-      }
-    ]
+    subscriptions: []
   },
   subscription: {
     subscriptionId: '',
     locationId: '',
     endpoint: '',
     status: ''
+  },
+  readings: {
+    page: 0,
+    pageCount: 0,
+    perPage: 0,
+    readings: [],
+    total: 0,
+    units: ''
+  },
+  summary: {
+    thisMonth: 0,
+    thisYear: 0,
+    today: 0,
+    units: ''
   }
 }
