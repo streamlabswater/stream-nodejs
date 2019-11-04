@@ -9,7 +9,7 @@ See the [StreamLabs Developer API docs](https://developer.streamlabswater.com/do
 ## Install
 
 
-```shell
+```bash
 
 npm i @streamlabswater/stream
 
@@ -71,7 +71,7 @@ When updating a location the response is always the [updated location](https://d
 
 const locationId = 'ae926a02...dbc8'
 const options = {
-  homeAway: 'away
+  homeAway: 'away'
 }
 
 const location = await stream.location.update(locationId, options)
