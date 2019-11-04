@@ -1,8 +1,7 @@
 {
   "name": "@streamlabswater/stream",
   "version": "0.3.1",
-  "author": "StreamLabs <support@streamlabswater.com> (https://www.streamlabswater.com/)",
-  "description": "StreamLabs Water API wrapper",
+  "description": "StreamLabs Water Developer API client",
   "keywords": [
     "streamlabs",
     "streamlabswater",
@@ -11,13 +10,15 @@
     "water",
     "api"
   ],
+  "author": "StreamLabs <support@streamlabswater.com> (https://www.streamlabswater.com/)",
   "contributors": [
     "Moses Ngone <moses@mospired.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:streamlabswater/stream-nodejs.git"
+    "url": "git@github.com:streamlabswater/stream-node.git"
   },
+  "bugs:": "https://github.com/streamlabswater/stream-node/issues",
   "main": "./lib/stream.js",
   "scripts": {
     "test:dev": "STREAMLABS_TEST_ENV=dev nyc ava",
@@ -40,6 +41,10 @@
     "date-fns": "^2.2.1",
     "query-string": "^6.8.3"
   },
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.*"
+  },
   "standard": {
     "parser": "babel-eslint"
   },
@@ -47,6 +52,6 @@
     "files": [
       "!**/*.schema.*"
     ],
-    "verbose": true
+    "verbose": false
   }
 }
