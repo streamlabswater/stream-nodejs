@@ -16,9 +16,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:streamlabswater/stream-node.git"
+    "url": "git@github.com:streamlabswater/stream-nodejs.git"
   },
-  "bugs:": "https://github.com/streamlabswater/stream-node/issues",
+  "bugs:": "https://github.com/streamlabswater/stream-nodejs/issues",
   "main": "./lib/stream.js",
   "scripts": {
     "test:dev": "STREAMLABS_TEST_ENV=dev nyc ava",
