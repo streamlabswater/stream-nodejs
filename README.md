@@ -36,7 +36,7 @@ const stream = new Stream('YOUR_STREAMLABSWATER_API_KEY')
 All of the methods return Promises and use `async/wait`
 
 ### Get all Locations
-Start by fetching all your [locations](https://developer.streamlabswater.com/docs/resources/locations/get-all-locations.html)
+Start by fetching all your [locations](https://developer.streamlabswater.com/docs/get-all-locations.html)
 
 ```javascript
 
@@ -51,7 +51,7 @@ const example = async () =>  {
 ```
 
 ### Get a Location
-A `locationId` is required to fetch details of a [location](https://developer.streamlabswater.com/docs/resources/locations/get-a-location.html), water usage and for updating *homeAway*.
+A `locationId` is required to fetch details of a [location](https://developer.streamlabswater.com/docs/get-a-location.html), water usage and for updating *homeAway*.
 
 ```javascript
 // ...
@@ -64,7 +64,7 @@ const location = await stream.location.get(locationId)
 
 ### Update a Location
 Currently you can only update the *homeAway* mode of the location
-When updating a location the response is always the [updated location](https://developer.streamlabswater.com/docs/resources/locations/update-a-location.html) details
+When updating a location the response is always the [updated location](https://developer.streamlabswater.com/docs/update-a-location.html) details
 
 ```javascript
 // ...
@@ -80,7 +80,7 @@ const location = await stream.location.update(locationId, options)
 ```
 
 ### Subscribe to Location Alerts
-If you choose to recieve notifications when alerts become active or end for a location, you need to provide a valid url endpoint where the StreamLabs service will send the notifications. The following methods wrap the corresponding StreamLabs api endpoints as descriped in the [Subscribe to Location Alerts section in the docs](https://developer.streamlabswater.com/docs/resources/location-subscriptions/subscribe-to-location-alerts.html)
+If you choose to recieve notifications when alerts become active or end for a location, you need to provide a valid url endpoint where the StreamLabs service will send the notifications. The following methods wrap the corresponding StreamLabs api endpoints as descriped in the [Subscribe to Location Alerts section in the docs](https://developer.streamlabswater.com/docs/subscribe-to-location-alerts.html)
 
 #### Create Subscription
 ```javascript
@@ -164,7 +164,7 @@ const waterUsageSummary = await stream.location.waterUsage.summary.get(locationI
 
 ### Get a Location’s Water Usage
 
-At the very minimum you need to provide a `startTime` for the reading you want to retrive.
+At the very minimum you need to provide a `startTime` for the [readings you want to retrieve](https://developer.streamlabswater.com/docs/get-water-usage.html).
 ```javascript
 // ...
 
