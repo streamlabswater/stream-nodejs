@@ -1,6 +1,6 @@
 {
   "name": "@streamlabswater/stream",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "StreamLabs Water Developer API client",
   "keywords": [
     "streamlabs",
